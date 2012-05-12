@@ -1,14 +1,20 @@
 class Todo extends Backbone.Model
 
+
+
 class TodoCollection extends Backbone.Collection
   model: Todo
   url: "/todos"
+
+
 
 class TodoView extends Backbone.View
   tagName: "li"
   render: =>
     $(@el).html @model.get("text")
     @
+
+
 
 class TodoCollectionView extends Backbone.View
   template: """
@@ -26,6 +32,8 @@ class TodoCollectionView extends Backbone.View
       todoHtml = new TodoView( model: todo).render().el
       $(@el).find("ul").append todoHtml
 
+
+
 class TodoRouter extends Backbone.Router
   routes:
     "" : "index"
@@ -36,7 +44,7 @@ class TodoRouter extends Backbone.Router
     @collection.fetch()
 
   help: ->
-    console.log 'help'
+    alert 'Here are your todos!'
 
   index: ->
     view = new TodoCollectionView(collection: @collection)
