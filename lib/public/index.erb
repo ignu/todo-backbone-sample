@@ -5,18 +5,9 @@
     <title>Todos</title>
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-    <script data-main="app/config" src="assets/js/libs/require.js"></script>
-    <script>
-      // define the bootstrap module inside index.erb so we can easily inject the default collection
-      define("bootstrap", [], function() {
-        return function(todoList) {
-          todoList.reset(<%= @todos.to_json %>);
-        };
-      });
-
-      // require main to kickstart the app
-      require(["main"]);
-    </script>
+    <script src="assets/js/libs/jquery-1.7.2.js" type="text/javascript"></script>
+    <script src="assets/js/libs/underscore.js"   type="text/javascript"></script>
+    <script src="assets/js/libs/backbone.js"     type="text/javascript"></script>
   </head>
   <body>
     <div class="shell container-fluid">
