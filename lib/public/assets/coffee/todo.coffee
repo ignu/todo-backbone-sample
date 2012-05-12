@@ -1,5 +1,7 @@
 class Todo extends Backbone.Model
-  urlRoot: "/todos"
+  url: "/todos"
+
+class TodoCollection extends Backbone.Collection
 
 class TodoRouter extends Backbone.Router
   routes:
