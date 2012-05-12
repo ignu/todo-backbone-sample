@@ -1,5 +1,4 @@
 class Todo extends Backbone.Model
-  url: "/todos"
 
 class TodoCollection extends Backbone.Collection
   model: Todo
