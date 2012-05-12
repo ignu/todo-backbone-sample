@@ -28,15 +28,17 @@ ul {
   list-style: none;
 }
 
-.bordered {
+li {
   border: 1px solid #DDD;
   border-radius: 4px;
 }
 
-.todo-item {
+li {
   height: 28px;
   padding: 5px;
   border-top: 1px solid #DDD;
+  font-size: 25px;
+  padding: 20px
 }
 
 .todo-display {
