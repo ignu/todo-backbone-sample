@@ -10,8 +10,16 @@ class TodoCollection extends Backbone.Collection
 
 class TodoView extends Backbone.View
   tagName: "li"
+  template: """
+    <%= todo.get("text") %> <a>x</a>
+  """
+  events:
+    "click a" : "delete"
+  delete: =>
+    @model.destroy()
+    $(@el).remove()
   render: =>
-    $(@el).html @model.get("text")
+    $(@el).html _.template(@template, todo: @model)
     @
 
 
