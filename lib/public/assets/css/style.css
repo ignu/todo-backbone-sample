@@ -2,6 +2,10 @@
   opacity: 0;
 }
 
+h1 {
+  padding: 10px;
+}
+
 .centered {
   text-align: center;
 }
