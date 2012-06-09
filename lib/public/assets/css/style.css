@@ -100,3 +100,10 @@ div form button {
 .help {
 	padding: 20px;
 }
+
+a, a:link, a:visited {
+  color: #0092B2;
+}
+a.delete {
+  color: #B70000;
+}
