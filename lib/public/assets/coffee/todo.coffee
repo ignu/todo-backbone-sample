@@ -58,6 +58,7 @@ class TodoFormView extends Backbone.View
   """
   events:
     "click button" : "add"
+    "keyup input"  : "onKeyUp"
   add: (e) =>
     e.preventDefault()
     @model.set("text", $(@el).find("input").val())
@@ -65,9 +66,11 @@ class TodoFormView extends Backbone.View
     @collection.add(@model) unless @model.collection
     $(@el).remove()
     window.router.navigate("")
+  onKeyUp: (e) =>
+    @add() if e.keyCode is 13
   render: =>
     $(@el).html _.template(@template, {model: @model})
-    $(@el).find("input").focus()
+    $(@el).find("input").first().focus()
     @
 
 class TodoRouter extends Backbone.Router

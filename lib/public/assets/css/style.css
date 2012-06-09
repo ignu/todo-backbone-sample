@@ -103,7 +103,10 @@ div form button {
 
 a, a:link, a:visited {
   color: #0092B2;
+  cursor: pointer;
 }
+
 a.delete {
   color: #B70000;
+  cursor: pointer;
 }
