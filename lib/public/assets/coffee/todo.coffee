@@ -6,13 +6,19 @@ class TodoCollection extends Backbone.Collection
 
 class TodoView extends Backbone.View
   tagName: "li"
-  template: """<%= model.get("text") %> <a>x</a>
+  template: """<%= model.get("text") %> <a>x</a> <span>edit</span>
   """
+  initialize: ->
+    @model.on("change", @render)
   events:
     "click a" : "delete"
+    "click span" : "edit"
   delete: =>
     @model.destroy()
     $(@el).fadeOut()
+  edit: =>
+    view = new TodoFormView model: @model
+    $(@el).append view.render().el
   render: =>
     html = _.template(@template, {model: @model})
     $(@el).html(html)
@@ -47,7 +53,7 @@ class TodoFormView extends Backbone.View
   template: """
   <form>
     <input value="<%= model.get("text") %>" />
-    <button>Add Todo</button>
+    <button>Save</button>
   </form>
   """
   events:
@@ -56,7 +62,7 @@ class TodoFormView extends Backbone.View
     e.preventDefault()
     @model.set("text", $(@el).find("input").val())
     @model.save()
-    @collection.add(@model)
+    @collection.add(@model) unless @model.collection
     $(@el).remove()
     window.router.navigate("")
   render: =>
